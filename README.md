@@ -24,9 +24,9 @@ python main.py --record_file_name <file_name> \
 ```
 
 Notes:
-- --record_file_name: Specify the name of the file where the extended data will be saved.
-- --initial_data_path: Provide the path to the initial commonsense data file.
-- --number_location: (Optional) Specify the number of locations to process.
-- --number_extension: Specify the number of iterations for extending the relations.
-- ----number_subtopic: (Optional) Specify the number of subtopics to process. If omitted, the script will process all subtopics.
-- --generate_initial_ckg: Action: store_true, description: Triggers the generation of initial cultural commonsense data.
+- --record_file_name: specify the name of the file where the extended data will be saved.
+- --initial_data_path: provide the path to the initial commonsense data file.
+- --number_location:  specify the number of locations to process.
+- --number_extension: specify the number of iterations for extending the relations.
+- ----number_subtopic: (optional) Specify the number of subtopics to process. If omitted, the script will process all subtopics.
+- --generate_initial_ckg: action: store_true, description: triggers the generation of initial cultural commonsense data.
