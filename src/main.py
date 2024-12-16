@@ -26,15 +26,19 @@ def prepare_prompt(prompt_type, **kwargs):
     return formatted_prompts
 
 
-def generate_cultural_commonsense(args,location, sub_topic,action=None):
+def generate_cultural_commonsense(args,location, sub_topic, action=None,knowledge=None,if_then_event=None):
     if args.prompt_template =="generate_english_ckg":
         prompt=prepare_prompt('generate_english_ckg',location=location,sub_topic=sub_topic,language='english')
     elif args.prompt_template =='extend_xNext_relation':
-        prompt=prepare_prompt('extend_xNext_relation',location=location,sub_topic=sub_topic,action=action,language='english')
+        prompt=prepare_prompt('extend_xNext_relation',location=location,sub_topic=sub_topic,
+                              initial_event=if_then_event, init_action=action, init_knwoledge=knowledge,language='english')
     else:
         raise ValueError(f"Unknown prompt template: {args.prompt_template}")
-    response_text=query_llm(prompt)
-    structure_data=parse_gpt_llm_response(response_text)
+    if not args.model.startswith('gpt'):
+        response_text=query_groq_llm(prompt=prompt,model=args.model)
+    else:
+        response_text=query_gpt(prompt=prompt, engine=args.model)
+    structure_data=parse_llm_response(args,response_text)
 
     for entry in structure_data:
         entry['location']=location
@@ -71,13 +75,16 @@ def save_to_excel(data_sheets, file_name,extend=False):
 def process_first_expand_iteration(data,args):
     all_row_new_knowledges=[]
     for row in data:
+        action=row[0]
         relation=row[2]
+        if_then_event=row[3]
         loc=row[4]
         subTopic=row[5]
         # First extension : we extend just relation xNext and oNext
         if relation=='xNext' or relation=='oNext':
-            action=row[1]
-            commonsenses=generate_cultural_commonsense(args,location=loc,sub_topic=subTopic,action=action)
+            knowledge=row[1]
+            commonsenses=generate_cultural_commonsense(args,location=loc,sub_topic=subTopic,action=action,
+                                                       knowledge=knowledge, if_then_event=if_then_event)
             if commonsenses: 
                 filtered_commonsense = [item for item in commonsenses if all(key in item and item[key] 
                                                                                      for key in ['event', 'knowledge', 
@@ -97,12 +104,15 @@ def expand_knowledge(list_of_knowledge_to_expand,args):
     all_row_new_knowledges=[]
     for kg_set in list_of_knowledge_to_expand:
         for row in kg_set:
-            action=row[1]
+            action=row[0]
+            knowledge=row[1]
+            if_then_event=row[3]
             loc=row[4]
             subTopic=row[5]
             print('-----++++++++-sub-topic: {}-++++++++++---'.format(subTopic))
-            print('-----action: {}----'.format(action))
-            commonsenses=generate_cultural_commonsense(args,location=loc,sub_topic=subTopic,action=action)
+            print('-----knowledge: {}----'.format(knowledge))
+            commonsenses=generate_cultural_commonsense(args,location=loc,sub_topic=subTopic,action=action,
+                                                       knowledge=knowledge, if_then_event=if_then_event)
             if commonsenses: 
                 filtered_commonsense = [item for item in commonsenses if all(key in item and item[key] 
                                                                                      for key in ['event', 'knowledge', 'relation', 'llm_result', 'location', 'sub_topic'])]
@@ -181,8 +191,10 @@ def add_params():
     parser.add_argument("--prompt_template", type=str, choices=['generate_english_ckg', 'extend_xNext_relation'],default='generate_english_ckg', help="key (s) of the prompt template you want to run" )
     parser.add_argument("--generate_initial_ckg",action='store_true',help='extract initial cultural commonsense')
     parser.add_argument("--number_location",type=int, default=1, help="number of location to process in the extension of relation")
-    parser.add_argument("--number_extension",type=int, help="number of time to extend the relation")
+    parser.add_argument("--number_extension",type=int, help="number of time to extend the relation",default=3)
     parser.add_argument("--number_subtopic",type=int, default=None,help="number of topic to process")
+    parser.add_argument("--model",type=str,default='gpt-4o',help='model we want to use to generate ckg',choices=['gpt-4o','llama-3.3-70b-versatile','llama-3.1-70b-versatile'])
+    parser.add_argument("--sub_sample",action='store_true',help='run a sub sample of data in the extension phase')
 
     params=parser.parse_args()
 
@@ -215,8 +227,11 @@ if __name__ =='__main__':
             location=locations[index]
             print('location', location)
             initial_commonsense_data=pd.read_excel(args.initial_data_path,sheet_name=location)
-            # uncomment the following line if you want to do a test with just 14 lines of the initial dataset
-            #initial_commonsense_data=initial_commonsense_data.head(14)
+            # uncomment the following line if you want to do a test with just 19 lines of the initial dataset
+            #initial_commonsense_data=initial_commonsense_data.head(19)
+            if args.sub_sample:
+                x_next_df = initial_commonsense_data[(initial_commonsense_data['relation'] == 'xNext') | (initial_commonsense_data['relation'] == 'oNext')]
+                initial_commonsense_data=sample_subtopics(x_next_df.head(55),20)
             expanded_data=extend_relation(model,initial_commonsense_data,args)
             data_sheets[location]=expanded_data
             record_file_name= args.record_file_name

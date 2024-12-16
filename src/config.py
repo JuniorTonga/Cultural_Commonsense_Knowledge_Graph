@@ -1,10 +1,14 @@
 import os 
 
 key='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'
-
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', key)
+# Get a free API key from https://console.groq.com/keys
+groq_key="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"
+GROQ_API_KEY=os.getenv('GROQ_API_KEY',groq_key)
+
 #locations=['Indonesia', 'UK','Japan','Egypt','Germany']
-locations=['Indonesia']
+#locations=['Indonesia']
+locations=['China']
 sub_topics=['breakfast', 'lunch', 'dinner', 'traditional foods and beverages', 'cutlery','cooking ware', 'fruit', 'food souvenirs', 'snacks',
                 'wedding location', 'wedding food', 'wedding dowry', 'traditions before marriage', 'traditions when getting married', 'traditions after marriage', 
                 'men’s wedding clothes', 'women’s wedding clothes', 'songs and activities during the wedding', 'invited guests at a wedding', 'gift brought to weddings', 'food at a wedding',
