@@ -10,7 +10,8 @@ python main.py --record_file_name <file_name> \
                --number_location <number_of_locations> \
                --generate_initial_ckg \
                --prompt_template generate_english_ckg \
-               --number_subtopic <number_of_subtopics>
+               --number_subtopic <number_of_subtopics> \
+               --model gpt-4o 
 ```
 ###  2. Extending oNext/xNext Relations
 
@@ -20,7 +21,8 @@ python main.py --record_file_name <file_name> \
                --initial_data_path <your_initial_commonsense_data_path> \
                --prompt_template extend_xNext_relation \
                --number_location <number_of_locations> \
-               --number_extension <number_of_extensions>
+               --number_extension <number_of_extensions> \
+               --model gpt-4o 
 ```
 
 Notes:
@@ -30,3 +32,4 @@ Notes:
 - --number_extension: specify the number of iterations for extending the relations.
 - ----number_subtopic: (optional) Specify the number of subtopics to process. If omitted, the script will process all subtopics.
 - --generate_initial_ckg: action: store_true, description: triggers the generation of initial cultural commonsense data.
+- --sub_sample: action: store_true, run a sub sample of data in the extension phase
