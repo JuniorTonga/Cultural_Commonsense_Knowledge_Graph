@@ -21,47 +21,66 @@ def clean_output(response_text):
         return None
 
 
-def parse_llm_response(args,response_text):
-    commonsense_data=[]    
+def parse_llm_response(args, response_text):
+    commonsense_data = []
+    intermediaire_events = []
+    next_events = []
+
     try:
-        clean_response_text=clean_output(response_text)
-        commonsenses=json.loads(clean_response_text)
+        clean_response_text = clean_output(response_text)
+        commonsenses = json.loads(clean_response_text)
     except json.JSONDecodeError:
         return commonsense_data
-    
-    if args.prompt_template =="generate_english_ckg":
+
+    if args.action == 'initial_generation':
         for commonsense in commonsenses:
-            if isinstance(commonsense,dict):
-                event = commonsense.get("action", "").strip()
-                knowledge = commonsense.get("knowledge", "").strip()
-                relation_type = commonsense.get("relation_type", "").strip()
-                if_then_event = commonsense.get("result", "").strip()
+            if isinstance(commonsense, dict):
+                event = commonsense.get("action", "")
+                knowledge = commonsense.get("knowledge", "")
+                relation_type = commonsense.get("relation_type", "")
+                if_then_event = commonsense.get("result", "")
+
+                if not all([event, knowledge, relation_type, if_then_event]):
+                    continue
 
                 commonsense_data.append({
-                    "event":event,
-                    "knowledge":knowledge,
-                    "relation":relation_type,
-                    "llm_result":if_then_event
-            })
-    elif args.prompt_template =='extend_xNext_relation':
-        for key in commonsenses[0].keys(): 
+                    "event": event.strip(),
+                    "knowledge": knowledge.strip(),
+                    "relation": relation_type.strip(),
+                    "llm_result": if_then_event.strip()
+                })
+        return commonsense_data
+
+    elif args.action == 'relation_extension':
+        for key in commonsenses[0].keys():
             items_list = commonsenses[0].get(key, [])
-            if not isinstance(items_list, list): 
+            if not isinstance(items_list, list):
                 continue
             for items in items_list:
-                event = items.get("action", "").strip()
-                knowledge = items.get("knowledge", "").strip()
-                relation_type = items.get("relation_type", "").strip()
-                if_then_event = items.get("event", "").strip()
+                event = items.get("action", "")
+                knowledge = items.get("knowledge", "")
+                relation_type = items.get("relation_type", "")
+                if_then_event = items.get("event", "")
 
-                commonsense_data.append({
-                    "event":event,
-                    "knowledge":knowledge,
-                    "relation":relation_type,
-                    "llm_result":if_then_event
-            })
+                if not all([event, knowledge, relation_type, if_then_event]):
+                    continue
 
-    return commonsense_data
+                if key == 'intermediate_steps':
+                    intermediaire_events.append({
+                        "event": event.strip(),
+                        "knowledge": knowledge.strip(),
+                        "relation": relation_type.strip(),
+                        "llm_result": if_then_event.strip()
+                    })
+                elif key == 'next_steps':
+                    next_events.append({
+                        "event": event.strip(),
+                        "knowledge": knowledge.strip(),
+                        "relation": relation_type.strip(),
+                        "llm_result": if_then_event.strip()
+                    })
+        return intermediaire_events, next_events
+
 
 
 def sample_subtopics(dataframe, total_samples, subtopic_column='sub_topic', random_state=42):
