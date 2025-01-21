@@ -435,7 +435,7 @@ Kriteria lain yang harus diikuti:
 
 الحدث الأولي: {initial_event}
 الفعل الأولي: {init_action}
-المعرفة الأولية: {init_knwoledge}
+المعرفة الأولية: {init_knowledge}
 
 يتم طلب نوعين من التوليدات:
     1. توليد الخطوات التالية
@@ -466,13 +466,13 @@ Kriteria lain yang harus diikuti:
         يجب أن يتم كتابة الجملة الكاملة للحدث والفعل والمعرفة في كل من الخطوات التالية والخطوات الوسيطة باللغة {language}.
         يجب أن يكون ردك بتنسيق صارم على هيئة مصفوفة JSON من الكائنات دون أي نص إضافي أو تفسير وتنظيمه في فئتين: الخطوات التالية والخطوات الوسطية:
         [{{"intermediate_steps": [
-        {{
-            "action": "الفعل",
-            "knowledge": "المعرفة",
-            "relation_type": "العلاقة",
-            "event": "إذا الفعل، فـ المعرفة"
-        }}
-    ],
+            {{
+                "action": "الفعل",
+                "knowledge": "المعرفة",
+                "relation_type": "العلاقة",
+                "event": "إذا الفعل، فـ المعرفة"
+            }}
+        ],
     "next_steps": [
         {{
             "action": "الفعل",
@@ -481,9 +481,10 @@ Kriteria lain yang harus diikuti:
             "event": "إذا الفعل، فـ المعرفة"
         }}
     ]
-}}]'''
-  }
-], 
+}}
+]
+'''
+}], 
 "Germany_ext":[{ 
     "role": "system", 
     "content": "Sie sind ein Assistent, der Experte für kulturelles Wissen ist und mit den Traditionen und regionalen Werten Ihres Landes, {location}, bestens vertraut ist."
