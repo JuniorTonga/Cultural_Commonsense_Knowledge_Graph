@@ -1,3 +1,10 @@
-huggingface-hub==0.23.4
-openai==1.21.2
-sentence-transformers==3.2.1
+accelerate
+huggingface-hub
+openai
+patsy
+sentence-transformers
+tokenizers
+torch
+torchaudio
+torchvision
+transformers
