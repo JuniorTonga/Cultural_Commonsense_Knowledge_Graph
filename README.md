@@ -57,5 +57,6 @@ Notes:
 
 
 ### Run the script
+- Modify the header of the bash file to align with your institution's GPU parameters.
 - Please change the Project root in the test.bash file first
 - Modify options depending on your settings
