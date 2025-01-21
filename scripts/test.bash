@@ -14,6 +14,8 @@
 
 echo "starting test......................."
 
+# Uncomment the following line and change to your HuggingFace Token to get access to models otherwise it will use my token
+#export HF_TOKEN="..."
 
 # please change this path to the path where the project is store
 PROJECT_ROOT="/home/junior.tonga/Cultural_Commonsense_Knowledge_Graph"
