@@ -36,7 +36,7 @@ generation_prompts={"England_gen":[
     "Indonesia_gen": [
           {
                 "role": "system",
-                "content":"Anda adalah asisten yang bertugas untuk mengekstrak pengetahuan umum terkait pengetahuan budaya sehari-hari."
+                "content":"Kamu adalah seorang pakar ilmu budaya yang sangat familiar dan paham tradisi dan nilai-nilai budaya di negara Anda, {location}"
             },
             {
                 "role": "user",
@@ -69,7 +69,7 @@ generation_prompts={"England_gen":[
     "China_gen": [
     {
         "role": "system",
-        "content": "你是一个文化常识知识提取助手。"
+        "content":  "你是一名文化知识专家，你对你的国家（{location}）的传统和区域价值观非常熟悉。"
     },
     {
         "role": "user",
@@ -102,7 +102,7 @@ generation_prompts={"England_gen":[
 "Japan_gen": [
             {   
                 "role": "system",
-                "content": "あなたは文化的常識知識を抽出するためのアシスタントです"
+                "content": "あなたは文化知識の専門家であり、あなたの国である{location}の伝統や地域の価値観に深く精通したアシスタントです。"
             },
             {
                 "role": "user",
@@ -134,7 +134,7 @@ generation_prompts={"England_gen":[
 "Egypt_gen": [
     {
         "role": "system",
-        "content": "انت مساعد في استخراج المعلومات الثقافية البديهية"
+        "content": "أنت مساعد خبير في المعرفة الثقافية، على دراية عميقة بالتقاليد والقيم الإقليمية في بلدك، {location}"
     },
     {
         "role": "user",
@@ -152,23 +152,23 @@ generation_prompts={"England_gen":[
 قم بتنسيق استجابتك بدقة كصفيف JSON من الكائنات، باتباع هذا التنسيق الدقيق بدون أي نصوص أو شروح إضافية:
 
 [
-    {
+    {{
         "action": "action",
         "knowledge": "knowledge",
         "relation_type": "relation type",
         "result": "اكمل الجملة في {language}, بإستخدام إذا و إذن"
-    },
+    }},
     ...
 ]
 
 تأكد من أن جمل "action"، و"knowledge"، والجملة الكاملة في "result" مكتوبة بـ{language}، بينما يجب أن تكون "relation_type" واحدة من الخيارات المحددة أعلاه.'''
-    }
+}
 ]
 ,
 "Germany_gen": [
           {
                 "role": "system",
-                "content": "Sie sind ein Assistent zur Extraktion von kulturellem Allgemeinwissen."
+                "content": "Sie sind ein Assistent, der Experte für kulturelles Wissen ist und mit den Traditionen und regionalen Werten Ihres Landes, {location}, bestens vertraut ist."
             },
             {
                 "role": "user",
@@ -203,7 +203,7 @@ generation_prompts={"England_gen":[
 
 # Prompts in english and local language for each location to extend xNext/oNext relation
 
-extension_prompts={"England_ext": [{ "role": "system", "content": "You are a cultural commonsense knowledge extraction assistant" 
+extension_prompts={"England_ext": [{ "role": "system", "content": "You are a cultural commonsense knowledge extraction assistant"
 }, { "role": "user",  "content": '''Your task is to generate as many culturally sensitive commonsense knowledge events as possible for {location}, focusing on {sub_topic}, based on an initial event comprising an action and a knowledge. Each event must follow the structure: "If [action], then [knowledge]," and should accurately reflect the cultural habits, practices, traditions, and customs related to {sub_topic} in {location}.
 
 Initial event: {initial_event}
@@ -259,7 +259,7 @@ Other requirements:
         ]
 '''
 }],
-"Indonesia_ext": [{ "role": "system", "content": "Anda adalah asisten yang bertugas untuk mengekstrak pengetahuan umum terkait pengetahuan budaya sehari-hari."
+"Indonesia_ext": [{ "role": "system", "content": "Kamu adalah seorang pakar ilmu budaya yang sangat familiar dan paham tradisi dan nilai-nilai budaya di negara Anda, {location}"
 }, { "role": "user",  "content": ''' Anda diminta untuk menghasilkan sebanyak mungkin pengetahuan budaya yang mencerminkan pemahaman umum (commonsense) dalam kehidupan sehari-hari di {location}, dengan topik {sub_topic}. Data yang dimaksud merupakan event-event yang diekstrak dari event awal dengan struktur: "Jika [action], Maka [knowledge]". Setiap event harus mengikuti struktur tersebut dan harus mencerminkan tradisi dan adat istiadat yang terkait dengan topik {sub_topic} di {location}.
 
 event awal: {initial_event}
@@ -316,7 +316,7 @@ Kriteria lain yang harus diikuti:
 "China_ext": [
   {
     "role": "system",
-    "content": "你是一个文化常识知识提取助手。"
+    "content": "你是一名文化知识专家，你对你的国家（{location}）的传统和区域价值观非常熟悉。"
   },
   {
     "role": "user",
@@ -370,7 +370,7 @@ Kriteria lain yang harus diikuti:
 }}]
 '''
 }],
-"Japan_ext": [{ "role": "system", "content": "あなたは文化的常識知識を抽出するためのアシスタントです"
+"Japan_ext": [{ "role": "system", "content": "あなたは文化知識の専門家であり、あなたの国である{location}の伝統や地域の価値観に深く精通したアシスタントです。"
 }, { "role": "user",  "content": '''あなたの任務は、{location}における{sub_topic}に関する文化に関連する常識的なイベント知識を可能な限り多く生成することです。このイベントは、1つの行動と1つの知識から構成される初期イベントに基づいています。それぞれのイベントは「もし[行動]したら、[知識]」という構造に従い、{location}の{sub_topic}に関連する文化的な習慣、慣例、伝統、風習を正確に反映したものでなければなりません。"
 
 初期イベント: {initial_event}
@@ -427,7 +427,7 @@ Kriteria lain yang harus diikuti:
 "Egypt_ext": [
   {
     "role": "system",
-    "content": "انت مساعد في استخراج المعلومات الثقافية البديهية"
+    "content": "أنت مساعد خبير في المعرفة الثقافية، على دراية عميقة بالتقاليد والقيم الإقليمية في بلدك، {location}"
   },
   {
     "role": "user",
@@ -486,7 +486,7 @@ Kriteria lain yang harus diikuti:
 ], 
 "Germany_ext":[{ 
     "role": "system", 
-    "content": "Sie sind ein Assistent zur Extraktion von kulturellem Allgemeinwissen."
+    "content": "Sie sind ein Assistent, der Experte für kulturelles Wissen ist und mit den Traditionen und regionalen Werten Ihres Landes, {location}, bestens vertraut ist."
 }, 
 { 
     "role": "user",  
@@ -543,6 +543,4 @@ Weitere Anforderungen:
 }}]
 '''
 }]
-}      
-
-
+} 
