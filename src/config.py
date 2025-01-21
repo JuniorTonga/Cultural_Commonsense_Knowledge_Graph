@@ -56,4 +56,3 @@ sub_topics_in_local_language_per_location={'England':england_sub_topics,'Indones
                                            'Germany':germany_sub_topics}
 
 
-

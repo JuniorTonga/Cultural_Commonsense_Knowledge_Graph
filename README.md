@@ -53,3 +53,9 @@ Notes:
 - --action: choose action to perform between intiatial extraction or relation extensions. Choices=['initial_generation', 'relation_extension']
 - --sub_sample: action: store_true, run a sub sample of data in the extension phase
 - --mode : run monolingual(english for all location) or multilingual(each location with his local language). choices=['monolingual_setting', 'multilingual_setting']
+
+
+
+### Run the script
+- Please change the Project root in the test.bash file first
+- Modify options depending on your settings
