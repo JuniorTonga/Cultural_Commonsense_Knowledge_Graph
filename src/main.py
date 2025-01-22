@@ -48,6 +48,7 @@ def generate_cultural_commonsense(args,location, sub_topic, action=None,knowledg
     else:
         raise ValueError(f"Unknown mode: {args.mode} please take a look of your mode")
     
+    print(prompt)
     if not args.model.startswith('gpt'):
         response_text=query_llama(prompt=prompt,model=args.model,temp=args.temp)
     else:
@@ -261,7 +262,7 @@ def add_params():
     parser.add_argument("--number_location",type=int, default=None, help="number of location to process in the extension of relation")
     parser.add_argument("--number_extension",type=int, help="number of time to extend the relation",default=3)
     parser.add_argument("--number_subtopic",type=int, default=None,help="number of topic to process")
-    parser.add_argument("--model",type=str,default='gpt-4o',help='model we want to use to generate ckg',choices=['gpt-4o','meta-llama/Llama-3.3-70B-Instruct'])
+    parser.add_argument("--model",type=str,default='llama3.3',help='model we want to use to generate ckg',choices=['gpt-4o','llama3.3'])
     parser.add_argument("--sub_sample",action='store_true',help='run a sub sample of data in the extension phase')
     parser.add_argument("--mode",type=str,default='monolingual',help='run monolingual(english for all location) or multilingual(each location with his local language)',
                         choices=['monolingual_setting', 'multilingual_setting'])
