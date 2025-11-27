@@ -46,7 +46,7 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
   <img src="Figure/Cultural_Assertions_Paths-Graph.drawio_big.jpg" alt="Cultural Commonsense Knowledge Graph Example" width="600"/>
 </p>
 
-*Figure 1: Example English if-then assertions from the Cultural Commonsense Knowledge Graph (CCKG) illustrating culturally grounded reasoning about breakfast in Indonesia.*
+*Example English if-then assertions from the Cultural Commonsense Knowledge Graph (CCKG) illustrating culturally grounded reasoning about breakfast in Indonesia.*
 
 ---
 
