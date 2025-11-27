@@ -1,8 +1,7 @@
 import os 
-
-key='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'
+key=''
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', key)
-hf_token = "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"
+hf_token = ""
 HF_TOKEN=os.getenv('HF_TOKEN',hf_token)
 locations=['Indonesia','China', 'England','Japan','Egypt','Germany']
 locations=['Indonesia','China', 'England','Japan','Egypt','Germany']
