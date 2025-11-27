@@ -59,7 +59,7 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 ```
 Cultural_Commonsense_Knowledge_Graph/
 ├── Notebooks/
@@ -108,7 +108,7 @@ Paste them in the config.py file
 ```
 ---
 
-## 📖 Usage
+## Usage
 
 ### 1. Initial Generation
 
@@ -201,7 +201,7 @@ Follow the notebook instructions to complete the post-processing pipeline.
 
 ---
 
-## 🚀 Quick Start Demo
+## Quick Start Demo
 
 ### Example : Generating CCKG for Chinese Culture (in English)
 ```bash
@@ -227,7 +227,7 @@ jupyter notebook Notebooks/ProcessData_BuildPaths.ipynb
 ```
 ---
 
-## 💾 Data Availability
+## Data Availability
 
 The complete generated Cultural Commonsense Knowledge Graphs (CCKG) including:
 - 37,363 English assertions across 5 countries
@@ -239,7 +239,7 @@ The complete generated Cultural Commonsense Knowledge Graphs (CCKG) including:
 
 ---
 
-## 📄 Citation
+## Citation
 
 If you use this code or data in your research, please cite our paper:
 ```
@@ -247,7 +247,7 @@ Available soon
 ```
 ---
 
-## 🤝 Contact
+## Contact
 
 For questions, data requests, or collaborations, please contact:
 
@@ -257,7 +257,7 @@ For questions, data requests, or collaborations, please contact:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 This work was conducted at:
 - Mohamed bin Zayed University of Artificial Intelligence
