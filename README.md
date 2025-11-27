@@ -13,23 +13,22 @@ Official implementation of **"LLMs as Cultural Archives: Cultural Commonsense Kn
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Repository Structure](#repository-structure)
-- [Installation](#installation)
-- [Usage](#usage)
+- 🔍 [Overview](#overview)
+- ✨ [Key Features](#key-features)
+- 📁 [Repository Structure](#repository-structure)
+- 🛠️ [Installation](#installation)
+- 📖 [Usage](#usage)
   - [1. Initial Generation](#1-initial-generation)
-  - [2. Iterative Expansion](#2-relation-extension)
+  - [2. Iterative Expansion](#2-iterative-expansion)
   - [3. Path Building](#3-path-building)
-- [Quick Start Examples](#quick-start-examples)
-- [Data Availability](#data-availability)
-- [Citation](#citation)
-- [License](#license)
-- [Contact](#contact)
+- 🚀  [Quick Start Demo](#quick-start-examples)
+- 💾 [Data Availability](#data-availability)
+- 📄 [Citation](#citation)
+- 🤝 [Contact](#contact)
 
 ---
 
-## 🔍 Overview
+## Overview
 
 This repository contains the implementation of **LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction**, a framework for extracting structured, culturally-grounded commonsense knowledge from Large Language Models. Our approach treats LLMs as cultural archives and systematically elicits culture-specific entities, relations, and practices to construct multi-step inferential chains.
 
@@ -38,7 +37,7 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 - **Iterative Prompt-Based Framework**: Constructs multilingual cultural commonsense knowledge graphs with if-then inferential chains
 - **Cross-Cultural Coverage**: Supports 5 countries (China, Indonesia, Japan, England, Egypt) in both English and native languages
 - **Extensive Human Evaluation**: Assessed on cultural relevance, correctness, and logical path coherence
-- **Downstream Applications**: Improves cultural reasoning and story generation tasks
+- **Downstream Applications**: Improves cultural reasoning and story generation tasks performance, highlighting the value of inferential cultural knowledge for developing culturally grounded NLP systems.
 
 ### Example
 
@@ -50,7 +49,7 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - 🌍 **Multi-country support**: China, Indonesia, Japan, England, Egypt
 - 🗣️ **Multilingual**: English, Chinese, Indonesian, Japanese, Arabic
@@ -82,7 +81,7 @@ Cultural_Commonsense_Knowledge_Graph/
 
 ---
 
-## 🛠️ Installation
+##  Installation
 
 ### Prerequisites
 
@@ -246,13 +245,6 @@ If you use this code or data in your research, please cite our paper:
 ```
 Available soon
 ```
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
 ---
 
 ## 🤝 Contact
