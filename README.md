@@ -9,7 +9,6 @@ Official implementation of **"LLMs as Cultural Archives: Cultural Commonsense Kn
 
 **Affiliations:** Mohamed bin Zayed University of Artificial Intelligence, Ubiquitous Knowledge Processing Lab (Technical University of Darmstadt)
 
----
 
 ## 📋 Table of Contents
 
@@ -26,7 +25,7 @@ Official implementation of **"LLMs as Cultural Archives: Cultural Commonsense Kn
 - 📄 [Citation](#citation)
 - 🤝 [Contact](#contact)
 
----
+
 
 ## Overview
 
@@ -47,8 +46,6 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 
 *Example English if-then assertions from the Cultural Commonsense Knowledge Graph (CCKG) illustrating culturally grounded reasoning about breakfast in Indonesia.*
 
----
-
 ## Key Features
 
 - 🌍 **Multi-country support**: China, Indonesia, Japan, England, Egypt
@@ -56,8 +53,6 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 - 🔗 **5 Relation Types**: xNext, xEffect, xNeed, oNext, oEffect
 - 📊 **37K+ English assertions**, 16K+ native-language assertions
 - 🎯 **Proven improvements** on IndoCulture, ArabCulture benchmarks and Story generation.
-
----
 
 ## Repository Structure
 ```
@@ -78,8 +73,6 @@ Cultural_Commonsense_Knowledge_Graph/
 ├── requirements.txt
 └── LICENSE
 ```
-
----
 
 ##  Installation
 
@@ -106,7 +99,6 @@ pip install -r requirements.txt
 ```bash
 Paste them in the config.py file
 ```
----
 
 ## Usage
 
@@ -140,8 +132,6 @@ Replace `--model gpt-4o` with:
 ```bash
 --model meta-llama/Llama-3.3-70B-Instruct
 ```
-
----
 
 ### 2. Iterative Expansion
 
@@ -199,8 +189,6 @@ jupyter notebook Notebooks/ProcessData_BuildPaths.ipynb
 
 Follow the notebook instructions to complete the post-processing pipeline.
 
----
-
 ## Quick Start Demo
 
 ### Example : Generating CCKG for Chinese Culture (in English)
@@ -225,7 +213,6 @@ python src/main.py \
 # Step 3: Build paths using the notebook
 jupyter notebook Notebooks/ProcessData_BuildPaths.ipynb
 ```
----
 
 ## Data Availability
 
@@ -237,15 +224,12 @@ The complete generated Cultural Commonsense Knowledge Graphs (CCKG) including:
 
 **Access**: Due to the size and nature of the generated data, the complete CCKG datasets are available upon request. Please contact the authors (see [Contact](#contact) section) to obtain access to the data.
 
----
-
 ## Citation
 
 If you use this code or data in your research, please cite our paper:
 ```
 Available soon
 ```
----
 
 ## Contact
 
@@ -254,8 +238,6 @@ For questions, data requests, or collaborations, please contact:
 - **Junior Cedric Tonga**: junior.tonga@mbzuai.ac.ae
 - **Chen Cecilia Liu**: chen.liu@tu-darmstadt.de
 - **Fajri Koto**: fajri.koto@mbzuai.ac.ae
-
----
 
 ## Acknowledgments
 
