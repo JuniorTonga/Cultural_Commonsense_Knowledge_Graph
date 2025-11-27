@@ -201,7 +201,7 @@ python src/main.py \
     --mode monolingual_setting
     ----number_location 1  # assuming that locations list in config.py have just China as location
 
-# Step 2: Extend relations (3 iterations)
+# Step 2: Iterative expansion (3 iterations)- generate intermediate actions and next actions
 python src/main.py \
     --record_file_name china_extended \
     --initial_data_path data/china_initial.json \
