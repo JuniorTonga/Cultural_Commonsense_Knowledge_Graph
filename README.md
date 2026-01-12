@@ -1,9 +1,12 @@
 # LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-green.svg)](./LICENSE_CODE)
+[![Output Data License: CC BY-NC-SA 4.0](https://img.shields.io/badge/Data%20License-CC%20BY--NC--SA%204.0-lightgrey.svg)](./LICENSE_DATA)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-Official implementation of **"LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction"**.
+
+
+Official implementation of the paper **"LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction"**. [**EACL 2026 Main**]
 
 **Authors:** Junior Cedric Tonga, Chen Cecilia Liu, Iryna Gurevych, Fajri Koto
 
@@ -24,6 +27,7 @@ Official implementation of **"LLMs as Cultural Archives: Cultural Commonsense Kn
 - 💾 [Data Availability](#data-availability)
 - 📄 [Citation](#citation)
 - 🤝 [Contact](#contact)
+- 📜 [License](#license)
 
 
 
@@ -41,10 +45,11 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 ### Example
 
 <p align="center">
-  <img src="Figure/Cultural_Assertions_Paths-Graph.drawio_big.jpg" alt="Cultural Commonsense Knowledge Graph Example" width="600"/>
+  <img src="Figure/ckg_final-Page-2.jpg" alt="Cultural Commonsense Knowledge Graph Example" width="600"/>
 </p>
 
-*Example English if-then assertions from the Cultural Commonsense Knowledge Graph (CCKG) illustrating culturally grounded reasoning about breakfast in Indonesia.*
+**Figure 1.** Application of our framework for constructing a partial **Cultural Commonsense Knowledge Graph (CCKG)** that captures culturally grounded reasoning about breakfast in Indonesia. Given an input prompt specifying the subtopic, language, country, and task-specific constraints, GPT-4o generates English *if–then* commonsense assertions of the form *(actionᵢ, relation, actionⱼ)* to create an initial knowledge base (KB). Assertions with the relations `xNext` and `oNext` are iteratively expanded by re-prompting GPT-4o to produce **intermediate action expansions**, which decompose *actionᵢ* into finer-grained steps leading to *actionⱼ*, and **forward actions** that occur after *actionⱼ*. In this example, only the first assertion in the expansion list is expanded for a single iteration. The resulting assertions are added to the KB, post-processed, and composed into the final CCKG subgraph.
+
 
 ## Key Features
 
@@ -222,7 +227,16 @@ The complete generated Cultural Commonsense Knowledge Graphs (CCKG) including:
 - 27,649 English knowledge paths
 - 6,571 native-language knowledge paths
 
-**Access**: Due to the size and nature of the generated data, the complete CCKG datasets are available upon request. Please contact the authors (see [Contact](#contact) section) to obtain access to the data.
+**Access**: Due to the size and nature of the generated data, the complete CCKG outputs are available upon request. Please contact the authors (see [Contact](#contact) section) to obtain access to the data.
+
+**❗ Disclaimer:** 
+This repository contains experimental software and is published for the sole purpose of giving additional background details on the respective publication. <span style="color:red">
+In this work, we use data extracted from LLMs as a research prototype and as an exploratory basis for the concept of LLMs as Cultural Archives. The extracted data should not be considered a formal dataset.
+</span>
+
+
+
+
 
 ## Citation
 
@@ -238,6 +252,12 @@ For questions, data requests, or collaborations, please contact:
 - **Junior Cedric Tonga**: junior.tonga@mbzuai.ac.ae
 - **Chen Cecilia Liu**: chen.liu@tu-darmstadt.de
 - **Fajri Koto**: fajri.koto@mbzuai.ac.ae
+
+## License
+
+This repository contains both **code** and **output data**, which are licensed separately:
+- **Code:** MIT License 
+- **Output Data:**  Creative Commons Attribution–NonCommercial–ShareAlike 4.0 (CC BY-NC-SA 4.0) — See the [LICENSE](./LICENSE) file for full details.
 
 ## Acknowledgments
 
