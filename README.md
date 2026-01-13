@@ -250,7 +250,7 @@ Available soon
 For questions, data requests, or collaborations, please contact:
 
 - **Junior Cedric Tonga**: junior.tonga@mbzuai.ac.ae
-- **Chen Cecilia Liu**: chen.liu@tu-darmstadt.de
+- **Chen Cecilia Liu**: ceciliachen.liu@gmail.com
 - **Fajri Koto**: fajri.koto@mbzuai.ac.ae
 
 ## License
