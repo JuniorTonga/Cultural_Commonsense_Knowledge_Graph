@@ -47,7 +47,7 @@ This repository contains the implementation of **LLMs as Cultural Archives: Cult
 ### Example
 
 <p align="center">
-  <img src="Figure/ckg_final-Page-2.jpg" alt="Cultural Commonsense Knowledge Graph Example" width="600"/>
+  <img src="Figure/ckg_final-Page-4.jpg" alt="Cultural Commonsense Knowledge Graph Example" width="600"/>
 </p>
 
 **Figure 1.** Application of our framework for constructing a partial **Cultural Commonsense Knowledge Graph (CCKG)** that captures culturally grounded reasoning about breakfast in Indonesia. Given an input prompt specifying the subtopic, language, country, and task-specific constraints, GPT-4o generates English *if–then* commonsense assertions of the form *(actionᵢ, relation, actionⱼ)* to create an initial knowledge base (KB). Assertions with the relations `xNext` and `oNext` are iteratively expanded by re-prompting GPT-4o to produce **intermediate action expansions**, which decompose *actionᵢ* into finer-grained steps leading to *actionⱼ*, and **forward actions** that occur after *actionⱼ*. In this example, only the first assertion in the expansion list is expanded for a single iteration. The resulting assertions are added to the KB, post-processed, and composed into the final CCKG subgraph.
