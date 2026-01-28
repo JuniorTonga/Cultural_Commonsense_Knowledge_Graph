@@ -242,7 +242,7 @@ In this work, we use data extracted from LLMs as a research prototype and as an 
 
 ## Citation
 
-If you use this code or data in your research, please cite our paper:
+If you use this work or data in your research, please cite our paper:
 ```
 @misc{tonga2026llmsculturalarchivescultural,
       title={LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction}, 
