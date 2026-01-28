@@ -6,7 +6,9 @@
 
 
 
-Official implementation of the paper **"LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction"**. [**EACL 2026 Main**]
+
+Official implementation of the paper **"LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction"**, accepted at **EACL 2026 (Main Conference)**.  
+📄 Paper: https://arxiv.org/abs/2601.17971
 
 **Authors:** Junior Cedric Tonga, Chen Cecilia Liu, Iryna Gurevych, Fajri Koto
 
@@ -242,7 +244,15 @@ In this work, we use data extracted from LLMs as a research prototype and as an 
 
 If you use this code or data in your research, please cite our paper:
 ```
-Available soon
+@misc{tonga2026llmsculturalarchivescultural,
+      title={LLMs as Cultural Archives: Cultural Commonsense Knowledge Graph Extraction}, 
+      author={Junior Cedric Tonga and Chen Cecilia Liu and Iryna Gurevych and Fajri Koto},
+      year={2026},
+      eprint={2601.17971},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2601.17971}, 
+}
 ```
 
 ## Contact
